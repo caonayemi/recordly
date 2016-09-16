@@ -3,21 +3,21 @@
 <h3>Artists</h3>
 <ul>
   <% @collection[:artists].each do |artist| %>
-    <li><% if artist.is_favorite %><%= image_tag "yellow_star.png", {class: "fav-star"} %><% else %><%= image_tag "blank_star.png", {class: "blank-star"} %><% end %><%= artist.full_name %> <%= link_to "View", artist %> <%= link_to "Edit", edit_artist_path(artist) %> <%= link_to "Delete", artist, method: "delete", data: {confirm: "Are you sure you want to remove this artist from your collection?"} %></li>
+    <li><img src="/assets/yellow_star.png" id="<%= artist.id %>" class="fav-star" style="<%= 'display: none;' unless artist.is_favorite %>"><img src="/assets/blank_star.png" class="blank-star" style="<%= 'display: none;' if artist.is_favorite %>"><%= artist.full_name %> <%= link_to "View", artist %> <%= link_to "Edit", edit_artist_path(artist) %> <%= link_to "Delete", artist, method: "delete", data: {confirm: "Are you sure you want to remove this artist from your collection?"} %></li>
   <% end %>
 </ul>
 <p><%= link_to "Add New Artist", new_artist_path %></p>
 <h3>Albums</h3>
 <ul>
   <% @collection[:albums].each do |album| %>
-    <li><% if album.is_favorite %><%= image_tag "yellow_star.png", {class: "fav-star"} %><% else %><%= image_tag "blank_star.png", {class: "blank-star"} %><% end %><%= album.title %> <%= link_to "View", album %> <%= link_to "Edit", edit_album_path(album) %> <%= link_to "Delete", album, method: "delete", data: {confirm: "Are you sure you want to remove this album from your collection?"} %></li>
+    <li><img src="/assets/yellow_star.png" id="<%= album.id %>" class="fav-star" style="<%= 'display: none;' unless album.is_favorite %>"><img src="/assets/blank_star.png" class="blank-star" style="<%= 'display: none;' if album.is_favorite %>"><%= album.title %> <%= link_to "View", album %> <%= link_to "Edit", edit_album_path(album) %> <%= link_to "Delete", album, method: "delete", data: {confirm: "Are you sure you want to remove this album from your collection?"} %></li>
   <% end %>
 </ul>
 <p><a href="/albums/new">Add New Album</a></p>
 <h3>Songs</h3>
 <ul>
   <% @collection[:songs].each do |song| %>
-    <li><% if song.is_favorite %><%= image_tag "yellow_star.png", {class: "fav-star"} %><% else %><%= image_tag "blank_star.png", {class: "blank-star"} %><% end %><%= song.title %> <%= link_to "View", song %> <%= link_to "Edit", edit_song_path(song) %> <%= link_to "Delete", song, method: "delete", data: {confirm: "Are you sure you want to remove this song from your collection?"} %></li>
+    <li><img src="/assets/yellow_star.png" id="<%= song.id %>" class="fav-star" style="<%= 'display: none;' unless song.is_favorite %>"><img src="/assets/blank_star.png" class="blank-star" style="<%= 'display: none;' if song.is_favorite %>"><%= song.title %> <%= link_to "View", song %> <%= link_to "Edit", edit_song_path(song) %> <%= link_to "Delete", song, method: "delete", data: {confirm: "Are you sure you want to remove this song from your collection?"} %></li>
   <% end %>
 </ul>
 <p><a href="/songs/new">Add New Song</a></p>
