@@ -13,15 +13,15 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password]) && request.xhr?
       log_in user
-      redirect_to events_path
+      redirect_to collection_path
     elsif user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to events_path
+      redirect_to collection_path
     elsif request.xhr?
-      @errors = ["I'm sorry, but these credentials were declined. Please try again."]
+      @errors = ["Incorrect username or password. Please try again."]
       render partial: "shared/login_form", statusCode: 422, locals: {errors: @errors}
     else
-      @errors = ["I'm sorry, but these credentials were declined. Please try again."]
+      @errors = ["Incorrect username or password. Please try again."]
       render 'new'
     end
   end

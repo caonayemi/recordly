@@ -8,7 +8,7 @@
 
 user = User.create(
   username: "example",
-  password: "testing!",
+  password: "testing",
   email: "test@email.com",
   first_name: "John",
   last_name: "Doe"

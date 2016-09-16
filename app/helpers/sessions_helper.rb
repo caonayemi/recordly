@@ -14,7 +14,5 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
     @current_user = nil
-    session.delete(:event_id)
-    @current_event = nil
   end
 end

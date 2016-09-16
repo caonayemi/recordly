@@ -1,0 +1,31 @@
+<%= render partial: "shared/nav_bar", locals: {user: @user} %>
+<div class="container">
+  <div class="all-forms" id='artist-form'>
+    <h4>Edit <%= @artist.full_name %></h4>
+    <%= render partial: "shared/error_box", locals: {errors: @errors}  %>
+    <br>
+    <%= form_for @artist do |f| %>
+      <div class = "input-field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :born_on %>
+        <%= f.date_field :born_on %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :died_on %>
+        <%= f.date_field :died_on %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+      </div>
+      <%= f.submit "Update"%>
+    <% end %>
+  </div>
+</div>
