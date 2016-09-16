@@ -28,6 +28,11 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @artist = Artist.find(params[:id])
+  end
+
   def update
     @user = current_user
     @artist = Artist.find(params[:id])
@@ -41,12 +46,12 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @user = current_user
-  #   @artist = @user.artists.where(id: params[:id])[0]
-  #   @artist.destroy
-  #   redirect_to artists_path
-  # end
+  def destroy
+    @user = current_user
+    @artist = @user.artists.where(id: params[:id])[0]
+    @artist.destroy
+    redirect_to collection_path
+  end
 
 
   private
