@@ -1,5 +1,6 @@
 <%= render partial: "shared/nav_bar", locals: {user: @user} %>
 <h1><%= @song.title %></h1>
+<img src="/assets/yellow_star.png" id="fav_song_<%= @song.id %>" class="fav-star" style="<%= 'display: none;' unless @song.is_favorite %>"><img src="/assets/blank_star.png" id="not_fav_song_<%= @song.id%>" class="blank-star" style="<%= 'display: none;' if @song.is_favorite %>"><h3>Details</h3>
 <h3>Details</h3>
 <p>Artist: <%= @song.album.artist.full_name %> <%= link_to "View", @song.album.artist %></p>
 <p>Album: <%= @song.album.title %> <%= link_to "View", @song.album %></p>

@@ -17,6 +17,10 @@
         <%= f.label :track_number %>
         <%= f.number_field :track_number %>
       </div>
+      <div class = "input-field">
+        <%= f.label :is_favorite %>
+        <%= f.check_box :is_favorite, {}, "true", "false" %>
+      </div>
       <%= f.submit "Update"%>
     <% end %>
   </div>

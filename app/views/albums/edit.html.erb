@@ -17,6 +17,10 @@
         <%= f.label :release_year %>
         <%= f.number_field :release_year %>
       </div>
+      <div class = "input-field">
+        <%= f.label :is_favorite %>
+        <%= f.check_box :is_favorite, {}, "true", "false" %>
+      </div>
       <%= f.submit "Update"%>
     <% end %>
   </div>
