@@ -13,7 +13,7 @@
 <% else %>
   <ul>
     <% @artist.albums.each do |album| %>
-      <li><%= album.title %> <a href="/albums/<%= album.id %>">View</a> <a href="/albums/<%= album.id %>/edit">Edit</a></li>
+      <li><%= album.title %> <%= link_to "View", album %></li>
     <% end %>
   </ul>
 <% end %>

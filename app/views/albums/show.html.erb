@@ -1,0 +1,17 @@
+<%= render partial: "shared/nav_bar", locals: {user: @user} %>
+<h1><%= @album.title %></h1>
+<h3>Details</h3>
+<p>Artist: <%= @album.artist.full_name %> <%= link_to "View", @album.artist %></p>
+<p>Title: <%= @album.title %></p>
+<p>Released: <%= @album.release_year %></p>
+<%= link_to "Edit", edit_album_path(@album) %> <%= link_to "Delete", @album, method: "delete", data: {confirm: "Are you sure you want to remove this album from your collection?"} %>
+<h3>Songs</h3>
+<% if @album.songs.empty? %>
+  You do not have any songs from this album in your collection.
+<% else %>
+  <ul>
+    <% @album.songs.each do |song| %>
+      <li><%= song.track_number %>. <%= song.title %> <%= link_to "View", song %></li>
+    <% end %>
+  </ul>
+<% end %>

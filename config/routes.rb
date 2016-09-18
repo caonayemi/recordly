@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
 
   resources :artists
+  # resources :artists, has_many: :albums
 
   resources :albums
+  # resources :albums, has_many: :songs
 
   resources :songs
 end

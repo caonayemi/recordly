@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20160915041930) do
 
   create_table "albums", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",        null: false
     t.integer  "release_year"
     t.boolean  "is_favorite"
-    t.integer  "user_id"
-    t.integer  "artist_id"
+    t.integer  "user_id",      null: false
+    t.integer  "artist_id",    null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
@@ -31,18 +31,18 @@ ActiveRecord::Schema.define(version: 20160915041930) do
     t.date     "died_on"
     t.string   "bio"
     t.boolean  "is_favorite"
-    t.integer  "user_id"
+    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",        null: false
     t.integer  "track_number"
     t.boolean  "is_favorite"
-    t.integer  "user_id"
-    t.integer  "album_id"
+    t.integer  "user_id",      null: false
+    t.integer  "album_id",     null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["album_id"], name: "index_songs_on_album_id"

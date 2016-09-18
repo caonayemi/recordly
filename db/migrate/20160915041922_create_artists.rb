@@ -7,7 +7,7 @@ class CreateArtists < ActiveRecord::Migration[5.0]
       t.date        :died_on
       t.string      :bio
       t.boolean     :is_favorite
-      t.belongs_to  :user, index: true
+      t.belongs_to  :user, index: true, null: false
 
       t.timestamps
     end

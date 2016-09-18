@@ -1,4 +1,4 @@
-class AlbumController < ApplicationController
+class AlbumsController < ApplicationController
   def show
     @user = current_user
     @album = @user.albums.where(id: params[:id]).first
@@ -6,7 +6,7 @@ class AlbumController < ApplicationController
 
   def new
     @user = current_user
-    @album = Artist.new
+    @album = Album.new
   end
 
   def create
@@ -29,12 +29,12 @@ class AlbumController < ApplicationController
 
   def edit
     @user = current_user
-    @album = Artist.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def update
     @user = current_user
-    @album = Artist.find(params[:id])
+    @album = Album.find(params[:id])
 
     @album.attributes = album_params
 
