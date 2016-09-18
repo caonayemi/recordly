@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .fav-star, .blank-star {
+ .fav-star, .blank-star, .artist-fav-star, .album-fav-star, .song-fav-star, .artist-blank-star, .album-blank-star, .song-blank-star {
    width: 20px;
    height: 20px;
  }

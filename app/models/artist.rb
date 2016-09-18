@@ -6,6 +6,8 @@ class Artist < ActiveRecord::Base
   validates_presence_of :first_name
   validates_uniqueness_of :user, scope: [:first_name, :last_name], message: "You have already added this artist to your collection."
 
+  include Favoritable
+
   def full_name
     "#{first_name} #{last_name}"
   end
