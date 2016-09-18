@@ -7,7 +7,7 @@
     <%= form_for @album do |f| %>
       <div class = "input-field">
         <%= f.label :artist_id %>
-        <%= select_tag :artist_id, options_for_select(@user.artists.collect{ |artist| [ artist.full_name, artist.id] }), prompt: "Select an artist" %>
+        <%= f.select :artist_id, options_for_select(@user.artists.collect{ |artist| [ artist.full_name, artist.id] }), prompt: "Select an artist" %>
       </div>
       <div class = "input-field">
         <%= f.label :title %>

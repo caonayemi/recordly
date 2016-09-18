@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'collection' => 'collection#show'
+  get 'collection' => 'collection#index'
+  get 'favorites' => 'favorites#index'
 
   resources :users, only: [:show, :new, :create]
 

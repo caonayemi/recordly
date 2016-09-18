@@ -11,7 +11,7 @@
 <% else %>
   <ul>
     <% @album.songs.each do |song| %>
-      <li><%= song.track_number %>. <%= song.title %> <%= link_to "View", song %></li>
+      <li><%= "#{song.track_number}. " if song.track_number %> <%= song.title %> <%= link_to "View", song %></li>
     <% end %>
   </ul>
 <% end %>
