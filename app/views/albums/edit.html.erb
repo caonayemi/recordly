@@ -1,0 +1,27 @@
+<%= render partial: "shared/nav_bar", locals: {user: @user} %>
+<div class="container">
+  <div class="all-forms" id='album-form'>
+    <h4>Edit <%= @album.title %></h4>
+    <%= render partial: "shared/error_box", locals: {errors: @errors}  %>
+    <br>
+    <%= form_for @album do |f| %>
+      <div class = "input-field">
+        <%= f.label :artist_id %>
+        <%= f.select :artist_id, options_for_select(@user.artists.collect{ |artist| [ artist.full_name, artist.id] }), prompt: "Select an artist" %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :release_year %>
+        <%= f.number_field :release_year %>
+      </div>
+      <div class = "input-field">
+        <%= f.label :is_favorite %>
+        <%= f.check_box :is_favorite, {}, "true", "false" %>
+      </div>
+      <%= f.submit "Update"%>
+    <% end %>
+  </div>
+</div>

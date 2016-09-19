@@ -1,0 +1,7 @@
+<div class="nav-bar">
+  <% if current_user %>
+    <strong>Recordly</strong> | <a href="/collection">View My Collection</a> | <a href="/favorites">View My Favorites</a> | <a href="/logout" data-method="delete">Log Out</a>
+  <% else %>
+    <a href="/login">Login</a> | <a hrfe="/signup">Sign Up</a>
+  <% end %>
+</div>

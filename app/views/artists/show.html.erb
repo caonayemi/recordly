@@ -1,0 +1,21 @@
+<%= render partial: "shared/nav_bar", locals: {user: @user} %>
+<h1><%= @artist.full_name %></h1>
+<img src="/assets/yellow_star.png" id="fav_artist_<%= @artist.id %>" class="fav-star" style="<%= 'display: none;' unless @artist.is_favorite %>"><img src="/assets/blank_star.png" id="not_fav_artist_<%= @artist.id%>" class="blank-star" style="<%= 'display: none;' if @artist.is_favorite %>">
+<h3>Details</h3>
+<p>First Name: <%= @artist.first_name %></p>
+<p>Last Name: <%= @artist.last_name %></p>
+<p>Born: <%= @artist.born_on.strftime("%B %-d, %Y") unless @artist.born_on.nil? %></p>
+<p>Died: <%= @artist.died_on.strftime("%B %-d, %Y") unless @artist.died_on.nil? %></p>
+<p>Bio: <%= @artist.bio %></p>
+<%= link_to "Edit", edit_artist_path(@artist) %> <%= link_to "Delete", @artist, method: "delete", data: {confirm: "Are you sure you want to remove this artist from your collection?"} %>
+<h3>Albums</h3>
+<% if @artist.albums.empty? %>
+  You do not have any albums from this artist in your collection. <%= link_to "Add New Album", new_album_path %>
+<% else %>
+  <ul>
+    <% @artist.albums.each do |album| %>
+      <li><%= album.title %> <%= link_to "View", album %></li>
+    <% end %>
+  </ul>
+  <p><%= link_to "Add New Album", new_album_path %></p>
+<% end %>
