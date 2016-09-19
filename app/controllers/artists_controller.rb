@@ -39,10 +39,14 @@ class ArtistsController < ApplicationController
 
     @artist.attributes = artist_params
 
-    if @artist.save
-      redirect_to @artist
+    if request.xhr?
+      render collection_path
     else
-      @errors = @artist.errors.full_messages
+      if @artist.save
+        redirect_to @artist
+      else
+        @errors = @artist.errors.full_messages
+      end
     end
   end
 
